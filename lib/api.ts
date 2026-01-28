@@ -164,10 +164,16 @@ export async function getInfluencers(niche?: string) {
 
 // 5. Fetch K-Bridge Opportunities
 export async function getKoreanOpportunities() {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
         .from('products')
-        .select('*')
-        .in('category', ['Beauty', 'Health'])
+        .select(`
+            *,
+            product_metrics(*),
+            cultural_insights(*),
+            suppliers(*)
+        `)
+        .ilike('slug', 'kr-%') // Filter specifically for Korean scraper output
+        .eq('is_active', true)
         .eq('is_active', true)
         .order('price', { ascending: true });
 
