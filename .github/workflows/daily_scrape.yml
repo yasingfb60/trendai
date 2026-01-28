@@ -60,3 +60,10 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           CI: 'true'
         run: npx ts-node --project scripts/tsconfig.scraper.json scripts/scrape_mena.ts
+
+      - name: Run TikTok Scraper (Creative Center)
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          CI: 'true'
+        run: npx ts-node --project scripts/tsconfig.scraper.json scripts/scrape_tiktok.ts

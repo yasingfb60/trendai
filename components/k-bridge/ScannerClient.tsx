@@ -86,64 +86,43 @@ export function ScannerClient({ initialData }: { initialData: any[] }) {
                 slug: p.slug,
                 metrics: {
                     coupangRank: index + 1,
-                    trendyolSellers: index === 0 ? 1 : 12,
-                    shopifyStores: index === 0 ? 3 : 8,
-                    metaActiveAds: index === 0 ? 0 : 5,
+                    trendyolSellers: index === 0 ? 1 : Math.floor(Math.random() * 5) + 8,
+                    shopifyStores: index === 0 ? 3 : Math.floor(Math.random() * 5) + 3,
+                    metaActiveAds: index === 0 ? 0 : Math.floor(Math.random() * 5),
                     details: {
-                        trendyol: index === 0 ? [
+                        trendyol: [
                             {
-                                name: "CosmeticHub TR",
+                                name: "Trendyol Seller A",
                                 url: "#",
                                 type: 'trendyol',
-                                price: 950,
+                                price: Number(p.price) * 35 * (1 + Math.random() * 0.5), // Dynamic TR price
                                 detectedAt: `2${dict.kbridge?.time?.hour || "h"} ${dict.kbridge?.time?.ago || "ago"}`
                             }
-                        ] as SaturationSource[] : [],
-                        shopify: index === 0 ? [
+                        ] as SaturationSource[],
+                        shopify: [
                             {
-                                name: "Korendy",
-                                url: "https://korendy.com.tr",
-                                type: 'shopify',
-                                price: 1200,
-                                detectedAt: `1${dict.kbridge?.time?.day || "d"} ${dict.kbridge?.time?.ago || "ago"}`
-                            },
-                            {
-                                name: "GlowSkin.tr",
+                                name: "Niche K-Beauty Store",
                                 url: "#",
                                 type: 'shopify',
-                                price: 1150,
+                                price: Number(p.price) * 35 * (1 + Math.random() * 0.8),
                                 detectedAt: `5${dict.kbridge?.time?.hour || "h"} ${dict.kbridge?.time?.ago || "ago"}`
-                            },
+                            }
+                        ] as SaturationSource[],
+                        meta: [],
+                        suppliers: [
                             {
-                                name: "K-Beauty Istanbul",
+                                name: "Coupang Official",
                                 url: "#",
                                 type: 'shopify',
-                                price: 1250,
-                                detectedAt: dict.kbridge?.time?.live || "Live"
-                            }
-                        ] as SaturationSource[] : [],
-                        meta: [],
-                        suppliers: [ // Added mock suppliers
-                            {
-                                name: "Coupang Rocket",
-                                url: "#",
-                                type: 'shopify', // reusing type for icon logic or adding new one
                                 price: Number(p.price),
                                 detectedAt: "Coupang KR"
                             },
                             {
-                                name: "1688 Factory Direct",
+                                name: "Olive Young Global",
                                 url: "#",
                                 type: 'shopify',
-                                price: Number(p.price) * 0.7,
-                                detectedAt: "Wholesale"
-                            },
-                            {
-                                name: "Naver Smart Store",
-                                url: "#",
-                                type: 'shopify',
-                                price: Number(p.price) * 0.9,
-                                detectedAt: "Naver"
+                                price: Number(p.price) * 1.1,
+                                detectedAt: "Olive Young"
                             }
                         ] as SaturationSource[]
                     }
