@@ -96,9 +96,20 @@ export default function DashboardClient({ rawProducts, competitorProducts }: { r
         influencers: []
     }));
 
-    // Client Side Filtering
+    // Client Side Filtering (Smart Concept Search)
     const filteredProducts = products.filter(p => {
-        const titleMatch = p.title?.toLowerCase().includes(query);
+        const q = query.toLowerCase();
+        if (!q) return true; // Show all if no query
+
+        // Smart Search: Check Title, Category, and AI Insights
+        const titleMatch = p.title?.toLowerCase().includes(q);
+        const categoryMatch = p.category?.toLowerCase().includes(q);
+        const insightMatch = p.culturalFit?.some(c =>
+            c.reasoning?.toLowerCase().includes(q) ||
+            c.matchScore.toString().includes(q)
+        );
+
+        const isSmartMatch = titleMatch || categoryMatch || insightMatch;
 
         let isRegionMatch = true;
         if (region === "MENA") {
@@ -111,7 +122,7 @@ export default function DashboardClient({ rawProducts, competitorProducts }: { r
             isRegionMatch = p.culturalFit.some(c => ["JP", "KR", "CN"].includes(c.countryCode));
         }
 
-        return (titleMatch || query === "") && isRegionMatch;
+        return isSmartMatch && isRegionMatch;
     });
 
     const stats = [
