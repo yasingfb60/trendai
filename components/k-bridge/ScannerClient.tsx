@@ -25,6 +25,7 @@ interface SaturationSource {
     type: 'trendyol' | 'shopify' | 'meta';
     price?: number;
     detectionType?: 'ai-match' | 'keyword' | 'manual';
+    detectedAt?: string;
 }
 
 interface KProduct {
@@ -97,7 +98,7 @@ export function ScannerClient({ initialData }: { initialData: any[] }) {
                                 price: 950,
                                 detectedAt: `2${dict.kbridge?.time?.hour || "h"} ${dict.kbridge?.time?.ago || "ago"}`
                             }
-                        ] : [],
+                        ] as SaturationSource[] : [],
                         shopify: index === 0 ? [
                             {
                                 name: "Korendy",
@@ -120,7 +121,7 @@ export function ScannerClient({ initialData }: { initialData: any[] }) {
                                 price: 1250,
                                 detectedAt: dict.kbridge?.time?.live || "Live"
                             }
-                        ] : [],
+                        ] as SaturationSource[] : [],
                         meta: [],
                         suppliers: [ // Added mock suppliers
                             {
@@ -144,7 +145,7 @@ export function ScannerClient({ initialData }: { initialData: any[] }) {
                                 price: Number(p.price) * 0.9,
                                 detectedAt: "Naver"
                             }
-                        ]
+                        ] as SaturationSource[]
                     }
                 },
                 supplier: {

@@ -60,9 +60,9 @@ export function WorldMap({ region, products = [] }: { region: string, products?:
         // Fallback or explicit cities if empty (to ensure globe isn't empty)
         if (generatedMarkers.length === 0) {
             return [
-                { location: [37.7595, -122.4367], size: 0.05 }, // SF
-                { location: [41.0082, 28.9784], size: 0.05 }, // Istanbul
-                { location: [35.6762, 139.6503], size: 0.05 }, // Tokyo
+                { location: [37.7595, -122.4367] as [number, number], size: 0.05 }, // SF
+                { location: [41.0082, 28.9784] as [number, number], size: 0.05 }, // Istanbul
+                { location: [35.6762, 139.6503] as [number, number], size: 0.05 }, // Tokyo
             ];
         }
 
