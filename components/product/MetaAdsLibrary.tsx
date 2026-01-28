@@ -116,10 +116,10 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                     <CardContent className="p-4 flex flex-col items-center justify-center text-center space-y-1 h-full">
                         <div className="flex items-center gap-2 mb-1">
                             <div className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
-                            <p className="text-xs text-blue-400 font-bold uppercase tracking-wider">{dict.product.metaAds?.activeAds || "Şu An Yayında"}</p>
+                            <p className="text-xs text-blue-400 font-bold uppercase tracking-wider">{dict.product.competitor?.metaAds?.activeAds || "Şu An Yayında"}</p>
                         </div>
                         <p className="text-3xl font-black text-blue-400">12</p>
-                        <p className="text-[10px] text-muted-foreground">{dict.product.metaAds?.activeDesc || "Şu an aktif olan"}</p>
+                        <p className="text-[10px] text-muted-foreground">{dict.product.competitor?.metaAds?.activeDesc || "Şu an aktif olan"}</p>
                     </CardContent>
                 </Card>
 
@@ -128,10 +128,10 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                     <CardContent className="p-4 flex flex-col items-center justify-center text-center space-y-1 h-full">
                         <div className="flex items-center gap-2 mb-1">
                             <Calendar className="h-3 w-3 text-purple-500" />
-                            <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">{dict.product.metaAds?.totalHistory || "Toplam Geçmiş"}</p>
+                            <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">{dict.product.competitor?.metaAds?.totalHistory || "Toplam Geçmiş"}</p>
                         </div>
                         <p className="text-3xl font-black text-foreground">148</p>
-                        <p className="text-[10px] text-muted-foreground">{dict.product.metaAds?.historyDesc || "Tüm zamanlar"}</p>
+                        <p className="text-[10px] text-muted-foreground">{dict.product.competitor?.metaAds?.historyDesc || "Tüm zamanlar"}</p>
                     </CardContent>
                 </Card>
 
@@ -140,11 +140,11 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                     <CardContent className="p-4 flex flex-col items-center justify-center text-center space-y-1 h-full">
                         <div className="flex items-center gap-2 mb-1">
                             <Play className="h-3 w-3 text-green-500" />
-                            <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">{dict.product.metaAds?.videoContent || "Format Tercihi"}</p>
+                            <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">{dict.product.competitor?.metaAds?.videoContent || "Format Tercihi"}</p>
                         </div>
                         <div className="flex items-end gap-1">
                             <p className="text-3xl font-black text-green-500">85%</p>
-                            <span className="text-sm font-bold text-foreground/50 mb-1">{dict.product.metaAds?.video || "Video"}</span>
+                            <span className="text-sm font-bold text-foreground/50 mb-1">{dict.product.competitor?.metaAds?.video || "Video"}</span>
                         </div>
                         {/* Mini Progress Bar */}
                         <div className="w-full h-1.5 bg-zinc-800 rounded-full mt-1 overflow-hidden flex">
@@ -152,8 +152,8 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                             <div className="h-full bg-zinc-700" style={{ width: "15%" }} />
                         </div>
                         <div className="flex justify-between w-full text-[9px] text-muted-foreground px-1 mt-0.5">
-                            <span>{dict.product.metaAds?.video || "Video"}</span>
-                            <span>{dict.product.metaAds?.image || "Görsel"}</span>
+                            <span>{dict.product.competitor?.metaAds?.video || "Video"}</span>
+                            <span>{dict.product.competitor?.metaAds?.image || "Görsel"}</span>
                         </div>
                     </CardContent>
                 </Card>
@@ -163,10 +163,10 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                     <CardContent className="p-4 flex flex-col items-center justify-center text-center space-y-1 h-full">
                         <div className="flex items-center gap-2 mb-1">
                             <Eye className="h-3 w-3 text-orange-500" />
-                            <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">{dict.product.metaAds?.impressions || "Tahmini Görüntülenme"}</p>
+                            <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">{dict.product.competitor?.metaAds?.impressions || "Tahmini Görüntülenme"}</p>
                         </div>
                         <p className="text-3xl font-black text-foreground">2.4M</p>
-                        <p className="text-[10px] text-muted-foreground">{dict.product.metaAds?.reachDesc || "Son 30 gün tahmini"}</p>
+                        <p className="text-[10px] text-muted-foreground">{dict.product.competitor?.metaAds?.reachDesc || "Son 30 gün tahmini"}</p>
                     </CardContent>
                 </Card>
             </div>
@@ -176,16 +176,16 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                 <div className="flex items-center gap-2">
                     <h3 className="font-bold text-lg flex items-center gap-2">
                         <Facebook className="h-5 w-5 text-blue-500" />
-                        {dict.product.metaAds?.libraryTitle}
+                        {dict.product.competitor?.metaAds?.libraryTitle}
                     </h3>
-                    <Badge variant="secondary" className="bg-blue-500/10 text-blue-400">{dict.product.metaAds?.live}</Badge>
+                    <Badge variant="secondary" className="bg-blue-500/10 text-blue-400">{dict.product.competitor?.metaAds?.live}</Badge>
                 </div>
                 <div className="flex items-center gap-2 w-full sm:w-auto">
                     <Button variant="outline" size="sm" className="gap-2">
-                        <Filter className="h-4 w-4" /> {dict.product.metaAds?.filter}
+                        <Filter className="h-4 w-4" /> {dict.product.competitor?.metaAds?.filter}
                     </Button>
                     <Button variant="default" size="sm" className="bg-blue-600 hover:bg-blue-700 gap-2">
-                        {dict.product.metaAds?.viewMeta} <ExternalLink className="h-3 w-3" />
+                        {dict.product.competitor?.metaAds?.viewMeta} <ExternalLink className="h-3 w-3" />
                     </Button>
                 </div>
             </div>
@@ -198,9 +198,9 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                         <div className="p-3 bg-muted/30 border-b border-border/50 flex items-center justify-between text-xs">
                             <div className="flex items-center gap-2">
                                 <Badge variant={ad.status === 'active' ? 'default' : 'secondary'} className={ad.status === 'active' ? 'bg-green-500/20 text-green-500 hover:bg-green-500/30' : ''}>
-                                    {ad.status === 'active' ? '● ' + dict.product.metaAds?.live : '● Inactive'}
+                                    {ad.status === 'active' ? '● ' + dict.product.competitor?.metaAds?.live : '● Inactive'}
                                 </Badge>
-                                <span className="text-muted-foreground">{ad.daysActive} {dict.product.metaAds?.days}</span>
+                                <span className="text-muted-foreground">{ad.daysActive} {dict.product.competitor?.metaAds?.days}</span>
                             </div>
                             <span className="text-muted-foreground">{ad.startDate}</span>
                         </div>
@@ -211,10 +211,10 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                             <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all gap-2">
                                 <Button size="sm" variant="secondary" className="gap-2">
                                     {ad.type === 'video' ? <Play className="h-4 w-4" /> : <ImageIcon className="h-4 w-4" />}
-                                    {dict.product.metaAds?.preview}
+                                    {dict.product.competitor?.metaAds?.preview}
                                 </Button>
                                 <Button size="sm" variant="outline" className="gap-2 bg-black/50 border-white/20 text-white hover:bg-black/70">
-                                    <Download className="h-4 w-4" /> {dict.product.metaAds?.download}
+                                    <Download className="h-4 w-4" /> {dict.product.competitor?.metaAds?.download}
                                 </Button>
                             </div>
                             {/* Type Badge */}
@@ -232,7 +232,7 @@ export function MetaAdsLibrary({ title }: { title: string }) {
                             </div>
                             <div className="pt-3 border-t border-border/50 flex items-center justify-between">
                                 <Button variant="ghost" size="sm" className="h-6 text-xs text-muted-foreground hover:text-foreground">
-                                    <Copy className="h-3 w-3 mr-1" /> {dict.product.metaAds?.copyText}
+                                    <Copy className="h-3 w-3 mr-1" /> {dict.product.competitor?.metaAds?.copyText}
                                 </Button>
                                 <Badge variant="outline" className="text-[10px] border-blue-500/30 text-blue-400">
                                     {ad.cta}

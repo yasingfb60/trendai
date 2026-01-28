@@ -45,13 +45,13 @@ export function WorldMap({ region, products = [] }: { region: string, products?:
         if (products && products.length > 0) {
             products.forEach(p => {
                 p.culturalFit.forEach(fit => {
-                    const coords = COUNTRY_COORDS[fit.countryCode] || COUNTRY_COORDS['US'];
+                    const coords = (COUNTRY_COORDS[fit.countryCode] || COUNTRY_COORDS['US']) as [number, number];
                     generatedMarkers.push({ location: coords, size: 0.05 });
                 });
                 // Also add ad countries from metrics if available
                 p.metrics.adCountries?.forEach(code => {
                     if (COUNTRY_COORDS[code]) {
-                        generatedMarkers.push({ location: COUNTRY_COORDS[code], size: 0.03 });
+                        generatedMarkers.push({ location: COUNTRY_COORDS[code] as [number, number], size: 0.03 });
                     }
                 });
             });
