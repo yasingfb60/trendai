@@ -20,10 +20,12 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 async function scrapeAmazon() {
     console.log("🚀 Starting Amazon Movers & Shakers Scraper...");
 
+    const isCI = process.env.CI === 'true';
+
     const browser = await puppeteer.launch({
-        headless: false, // Show browser so user can see it working!
+        headless: isCI, // Headless in CI, Visible locally
         defaultViewport: null,
-        args: ['--start-maximized']
+        args: ['--start-maximized', '--no-sandbox', '--disable-setuid-sandbox']
     });
 
     const page = await browser.newPage();
