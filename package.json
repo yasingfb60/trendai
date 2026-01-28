@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "scrape:amazon": "ts-node --project scripts/tsconfig.scraper.json scripts/scrape_amazon.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -19,8 +20,10 @@
     "clsx": "^2.1.1",
     "cobe": "^0.6.5",
     "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
     "lucide-react": "^0.563.0",
     "next": "16.1.4",
+    "puppeteer": "^24.36.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "recharts": "^3.7.0",
@@ -36,6 +39,7 @@
     "eslint-config-next": "16.1.4",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

@@ -1,9 +1,11 @@
 import { supabase } from './supabase';
+import { supabaseAdmin } from './supabase-admin';
 import { Product } from '@/types';
 
 // 1. Fetch RAW data (for Client Components that want to do their own mapping)
 export async function getRawProducts() {
-    const { data: products, error } = await supabase
+    // Use ADMIN client to bypass RLS policies and ensure we see all data
+    const { data: products, error } = await supabaseAdmin
         .from('products')
         .select(`
             *,
