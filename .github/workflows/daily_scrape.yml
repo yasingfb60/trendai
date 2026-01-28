@@ -46,3 +46,17 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           CI: 'true'
         run: npm run scrape:amazon
+
+      - name: Run K-Bridge Scraper (Korea -> TR)
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          CI: 'true'
+        run: npx ts-node --project scripts/tsconfig.scraper.json scripts/scrape_korea.ts
+
+      - name: Run MENA Scraper (Amazon SA)
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          CI: 'true'
+        run: npx ts-node --project scripts/tsconfig.scraper.json scripts/scrape_mena.ts
